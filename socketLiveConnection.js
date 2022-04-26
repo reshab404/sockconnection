@@ -1,4 +1,3 @@
-console.log("changes");
 !(function (t) {
   if ("object" == typeof exports && "undefined" != typeof module)
     module.exports = t();
@@ -6491,29 +6490,29 @@ function getAllPendingAssignedTickets(
 }
 
 function getStompClient(callBack) {
-  // if (typeof globalObj[0] === "undefined") {
-  //   axios
-  //     .get(`/ms/auth/authenticate-user`)
-  //     .then((response) => {
-  //       connectToSocket(response.session, callBack);
-  //     })
-  //     .catch((error) => {
-  //       console.log("error in authenticating");
-  //       callBack("ERROR");
-  //     });
-  // } else {
-  //   callBack(globalObj[0]);
-  // }
-  connectToSocket("uffbzoy8yzhjuien4dp8", callBack);
+  if (typeof globalObj[0] === "undefined") {
+    axios
+      .get(`/ms/auth/authenticate-user`)
+      .then((response) => {
+        connectToSocket(response.session, callBack);
+      })
+      .catch((error) => {
+        console.log("error in authenticating");
+        callBack("ERROR");
+      });
+  } else {
+    callBack(globalObj[0]);
+  }
+  //connectToSocket("uffbzoy8yzhjuien4dp8", callBack);
 }
 
 function connectToSocket(key, callBack) {
-  let socket = new SockJS("https://localhost:8089/socket");
-  //let socket = new SockJS("https://ws.kapturecrm.com:443/socket");
+  //let socket = new SockJS("https://localhost:8089/socket");
+  let socket = new SockJS("https://ws.kapturecrm.com:443/socket");
   let stompClient = Stomp.over(socket);
 
   let header = {
-    domain: "kapdemo.kapturecrm.com", //window.location.hostname,
+    domain: window.location.hostname,
     session_key: key,
     dashboardViewId: generateDashboardViewId(10),
     clientDashType: "MULTISUBS",
