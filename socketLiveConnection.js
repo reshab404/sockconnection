@@ -1,4 +1,4 @@
-//start
+console.log("changes");
 !(function (t) {
   if ("object" == typeof exports && "undefined" != typeof module)
     module.exports = t();
