@@ -6574,4 +6574,5 @@ function disconnectSocket() {
 window.kaptureSocketConnections = {
   getAllPendingTickets: getAllPendingTickets,
   getAllPendingAssignedTickets: getAllPendingAssignedTickets,
+  disconnectSocket: disconnectSocket,
 };
