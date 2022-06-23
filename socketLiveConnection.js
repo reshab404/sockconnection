@@ -6494,7 +6494,7 @@ function getStompClient(callBack) {
     axios
       .get(`/ms/auth/authenticate-user`)
       .then((response) => {
-        connectToSocket(response.session, callBack);
+        connectToSocket(response.data.session, callBack);
       })
       .catch((error) => {
         console.log("error in authenticating");
